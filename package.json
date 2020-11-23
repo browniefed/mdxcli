@@ -10,9 +10,7 @@
 	},
 	"scripts": {
 		"build": "tsc",
-		"start": "npm run build && dist/cli.js",
-		"pretest": "npm run build",
-		"test": "xo && ava"
+		"start": "npm run build && dist/cli.js"
 	},
 	"files": [
 		"dist/cli.js"
