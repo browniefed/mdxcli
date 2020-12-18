@@ -8,12 +8,16 @@ import Spinner from "ink-spinner";
 import glob from "glob";
 const mdxTemplate = ({ title }: { title: string }) => {
 	return `
+import { REACT } from "../../../technologies";
+
 export const meta = {
-	title: "${title}",
+	title: ${JSON.stringify(title)},
 	description: "",
-	createdAt: '${new Date().toISOString()}',
+	type: "TUTORIAL",
+	createdAt: ${JSON.stringify(new Date().toISOString())},
+	technology: REACT,
 	tags: [],
-	technology: ''
+	images: []
 };
 `.trimStart();
 };
