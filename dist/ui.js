@@ -32,12 +32,16 @@ const ink_spinner_1 = __importDefault(require("ink-spinner"));
 const glob_1 = __importDefault(require("glob"));
 const mdxTemplate = ({ title }) => {
     return `
+import { REACT } from "../../../technologies";
+
 export const meta = {
-	title: "${title}",
+	title: ${JSON.stringify(title)},
 	description: "",
-	createdAt: '${new Date().toISOString()}',
+	type: "TUTORIAL",
+	createdAt: ${JSON.stringify(new Date().toISOString())},
+	technology: REACT,
 	tags: [],
-	technology: ''
+	images: []
 };
 `.trimStart();
 };
