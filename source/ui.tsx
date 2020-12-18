@@ -11,6 +11,7 @@ const mdxTemplate = ({ title }: { title: string }) => {
 import { REACT } from "../../../technologies";
 
 export const meta = {
+	published: false,
 	title: ${JSON.stringify(title)},
 	description: "",
 	type: "TUTORIAL",
