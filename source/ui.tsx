@@ -7,29 +7,34 @@ import SelectInput from "ink-select-input";
 
 const mdxTemplate = ({ title }: { title: string }) => {
 	return `
-import { REACT } from "../../../technologies";
-
-export const meta = {
-	published: false,
-	title: ${JSON.stringify(title)},
-	description: "",
-	type: "TUTORIAL",
-	createdAt: ${JSON.stringify(new Date().toISOString())},
-	technology: REACT,
-	tags: [],
-	images: []
-};
-`.trimStart();
+---
+published: true
+title: ${title}
+description: >-
+	This is a description
+type: TUTORIAL
+createdAt: ${JSON.stringify(new Date().toISOString())}
+technology: REACT
+tags:
+	- react
+images:
+	- ./
+code:
+	- 'https://github.com/codedailyio/'
+---
+`.trim();
 };
 
 const slugify = (title: string = "") => {
-	const pieces = (title || "").match(/\S+\s*/g) ?? [];
-
 	return (
-		pieces
+		//@ts-ignore
+		(title ?? "")
+			//@ts-ignore
+			.match(/\S+\s*/g)
 			.map((p) => p.trim())
 			.filter((p) => p !== "-")
 			.join("-")
+			.replace(/\//g, "-") // ehhh?
 			.replace(/\,/g, "")
 			.replace(/\./g, "") ?? ""
 	);
